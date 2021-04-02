@@ -1,21 +1,47 @@
 package com.example.crudandroidspring.Models;
 
-public class PresionArterial {
-    private Long id;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+public class PresionArterial {
+
+    @SerializedName("id")
+    @Expose
+    private int id;
+
+    @SerializedName("fecha")
+    @Expose
     private String fecha;
 
+    @SerializedName("hora")
+    @Expose
     private String hora;
 
+    @SerializedName("sistolica")
+    @Expose
     private String sistolica;
 
+    @SerializedName("diastolica")
+    @Expose
     private String diastolica;
 
-    public Long getId() {
+    public PresionArterial() {
+
+    }
+
+    public PresionArterial(int id, String fecha, String hora, String sistolica, String diastolica) {
+        this.id = id;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.sistolica = sistolica;
+        this.diastolica = diastolica;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

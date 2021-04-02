@@ -8,6 +8,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface PresionService {
-    @GET("listar/")
+    @GET("presion/")
     Call<List<PresionArterial>> getPresion();
 }
