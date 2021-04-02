@@ -25,16 +25,21 @@ public class PresionArterial {
     @Expose
     private String diastolica;
 
+    @SerializedName("pacienteId")
+    @Expose
+    private int pacienteId;
+
     public PresionArterial() {
 
     }
 
-    public PresionArterial(int id, String fecha, String hora, String sistolica, String diastolica) {
+    public PresionArterial(int id, String fecha, String hora, String sistolica, String diastolica, int pacienteId) {
         this.id = id;
         this.fecha = fecha;
         this.hora = hora;
         this.sistolica = sistolica;
         this.diastolica = diastolica;
+        this.pacienteId = pacienteId;
     }
 
     public int getId() {
@@ -75,5 +80,13 @@ public class PresionArterial {
 
     public void setDiastolica(String diastolica) {
         this.diastolica = diastolica;
+    }
+
+    public int getPacienteId() {
+        return pacienteId;
+    }
+
+    public void setPacienteId(int pacienteId) {
+        this.pacienteId = pacienteId;
     }
 }

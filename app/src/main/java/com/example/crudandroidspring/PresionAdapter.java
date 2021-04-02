@@ -21,8 +21,8 @@ public class PresionAdapter extends ArrayAdapter<PresionArterial> {
 
     public PresionAdapter(@NonNull Context context, int resource, @NonNull List<PresionArterial> objects) {
         super(context, resource, objects);
-        this.context=context;
-        this.presion=objects;
+        this.context = context;
+        this.presion = objects;
     }
 
     @NonNull
@@ -42,6 +42,17 @@ public class PresionAdapter extends ArrayAdapter<PresionArterial> {
         txtTime.setText(String.format("HORA: %s", presion.get(position).getHora()));
         txtSistolica.setText(String.format("SISTOLICA: %s", presion.get(position).getSistolica()));
         txtDiastolica.setText(String.format("DIASTOLICA: %s", presion.get(position).getDiastolica()));
+
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, PresionActivity.class);
+                intent.putExtra("ID",String.valueOf(presion.get(position).getId()));
+                intent.putExtra("SISTOLICA", presion.get(position).getSistolica());
+                intent.putExtra("DIASTOLICA", presion.get(position).getDiastolica());
+                context.startActivity(intent);
+            }
+        });
 
         return rowView;
     }

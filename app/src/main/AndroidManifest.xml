@@ -20,6 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".PresionActivity"
+            android:label="Presion Arterial"
+            android:theme="@style/Theme.CrudAndroidSpring.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

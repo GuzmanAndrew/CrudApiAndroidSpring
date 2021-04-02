@@ -1,5 +1,6 @@
 package com.example.crudandroidspring;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.crudandroidspring.Models.PresionArterial;
@@ -39,15 +40,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        listView=(ListView)findViewById(R.id.listView);
+        listView = (ListView)findViewById(R.id.listView);
+        listsPresion();
 
         FloatingActionButton fab = findViewById(R.id.fabe);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listsPresion();
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, PresionActivity.class);
+                intent.putExtra("ID", "");
+                intent.putExtra("SISTOLICA", "");
+                intent.putExtra("DIASTOLICA", "");
+                startActivity(intent);
             }
         });
     }
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<PresionArterial>> call, Response<List<PresionArterial>> response) {
                 if(response.isSuccessful()) {
                     listPresion = response.body();
-                    listView.setAdapter(new PresionAdapter(MainActivity.this,R.layout.content_main,listPresion));
+                    listView.setAdapter(new PresionAdapter(MainActivity.this,R.layout.content_main, listPresion));
                 }
             }
 
